@@ -1,14 +1,18 @@
-def treeCounter(data)
+def treeCounter(data, right_move, down_move = 1)
+    down_move = down_move
+    right_move = right_move
     width = data[0].length
     pos = 0
     tree_count = 0
+    index = 0
     data.each do |x|
-        if x[pos] == "#"
+        if x[pos] == "#" && index % down_move == 0
             tree_count += 1
         end
-        pos = (pos + 3) % width
+        pos = (pos + right_move) % width
+        index += 1
     end
-    p tree_count
+    return tree_count
 end
 
 data = ["......##....#...#..#.#....#....",
@@ -335,4 +339,8 @@ data = ["......##....#...#..#.#....#....",
 "..#.....#...........#..#..##...",
 "..#..#.......#....#....###.#..."
 ]
-treeCounter(data)
+p treeCounter(data, 1, 1)
+p treeCounter(data, 3, 1)  
+p treeCounter(data, 5, 1) 
+p treeCounter(data, 7, 1) 
+p treeCounter(data, 1, 2)
