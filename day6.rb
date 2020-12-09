@@ -9,11 +9,13 @@ def datacleaner(data)
             arr.append(x.delete_suffix("\n"))
         end
     end
+    finalarr << arr
     return finalarr
 end
 
 def letterchecker(array)
     letters = []
+    p array
     array.each do |x|
         x.each_char do |y|
             if not letters.include? y
@@ -21,6 +23,7 @@ def letterchecker(array)
             end
         end
     end
+    p letters.length
     return letters.length
 
 end
@@ -32,11 +35,6 @@ def totalCalculator(data)
     end
     total.sum
 end
-
-
-
-
-
 
 data = "onitvpuwxqczlmkabsjrgedfy
 epdjqbxlnimfaowtzgsyku
@@ -2158,5 +2156,5 @@ ngvpde
 epnxvgr
 ywepngvu"
 
-cleaned_data = datacleaner(data)
+cleaned_data = datacleaner(data2)
 p totalCalculator(cleaned_data)
