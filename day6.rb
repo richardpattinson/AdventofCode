@@ -9,6 +9,7 @@ def datacleaner(data)
             arr.append(x.delete_suffix("\n"))
         end
     end
+    finalarr << arr
     return finalarr
 end
 
