@@ -14,16 +14,16 @@ def datacleaner(data)
 end
 
 def letterchecker(array)
-    letters = []
-    p array
-    array.each do |x|
-        x.each_char do |y|
-            if not letters.include? y
-                letters << y
+    letters = array[0].split("").uniq
+    letters.each do |x|
+        array.each do |y|
+            p letters
+            if not y.include? x
+                letters.delete x
             end
         end
     end
-    p letters.length
+
     return letters.length
 
 end
@@ -33,8 +33,29 @@ def totalCalculator(data)
     data.each do |x|
         total << letterchecker(x)
     end
+    p total.count
     total.sum
 end
+
+data2 = "abc
+ab
+
+a
+b
+c
+c
+
+abc
+ac
+
+a
+a
+a
+a
+
+b
+b
+c"
 
 data = "onitvpuwxqczlmkabsjrgedfy
 epdjqbxlnimfaowtzgsyku
@@ -2156,5 +2177,5 @@ ngvpde
 epnxvgr
 ywepngvu"
 
-cleaned_data = datacleaner(data2)
+cleaned_data = datacleaner(data)
 p totalCalculator(cleaned_data)
